@@ -126,6 +126,8 @@ public class logInScreen extends javax.swing.JFrame {
 
     private void signInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInButtonActionPerformed
         // TODO add your handling code here:
+        String emailAddress = emailAddressTextField.getText();
+        String password = emailAddressTextField.getText();
     }//GEN-LAST:event_signInButtonActionPerformed
 
     /**
