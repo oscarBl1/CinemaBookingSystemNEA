@@ -33,8 +33,8 @@ public class registerScreen extends javax.swing.JFrame {
         emailAddressTextField = new javax.swing.JTextField();
         firstNameTextField = new javax.swing.JTextField();
         lastNameTextField = new javax.swing.JTextField();
-        passwordLabel = new javax.swing.JLabel();
         passwordTextField = new javax.swing.JTextField();
+        passwordLabel = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
         registerLabel = new javax.swing.JLabel();
         exitButton = new javax.swing.JButton();
@@ -46,42 +46,59 @@ public class registerScreen extends javax.swing.JFrame {
         setLocation(new java.awt.Point(0, 0));
         setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
+        getContentPane().setLayout(null);
 
         emailAddressLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         emailAddressLabel.setText("Email Address");
+        getContentPane().add(emailAddressLabel);
+        emailAddressLabel.setBounds(53, 106, 159, 30);
 
         firstNameLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         firstNameLabel.setText("First Name");
+        getContentPane().add(firstNameLabel);
+        firstNameLabel.setBounds(53, 192, 124, 34);
 
         lastNameLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         lastNameLabel.setText("Last Name");
+        getContentPane().add(lastNameLabel);
+        lastNameLabel.setBounds(53, 282, 116, 34);
 
         emailAddressTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailAddressTextFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(emailAddressTextField);
+        emailAddressTextField.setBounds(53, 142, 353, 32);
 
         firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameTextFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(firstNameTextField);
+        firstNameTextField.setBounds(53, 232, 353, 32);
 
         lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameTextFieldActionPerformed(evt);
             }
         });
-
-        passwordLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        passwordLabel.setText("Password");
+        getContentPane().add(lastNameTextField);
+        lastNameTextField.setBounds(53, 322, 353, 32);
 
         passwordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordTextFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(passwordTextField);
+        passwordTextField.setBounds(53, 412, 353, 32);
+
+        passwordLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        passwordLabel.setText("Password");
+        getContentPane().add(passwordLabel);
+        passwordLabel.setBounds(53, 372, 104, 34);
 
         registerButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         registerButton.setText("Register");
@@ -90,9 +107,13 @@ public class registerScreen extends javax.swing.JFrame {
                 registerButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(registerButton);
+        registerButton.setBounds(170, 527, 200, 50);
 
         registerLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         registerLabel.setText("Register an account");
+        getContentPane().add(registerLabel);
+        registerLabel.setBounds(178, 32, 228, 34);
 
         exitButton.setText("Exit");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +121,8 @@ public class registerScreen extends javax.swing.JFrame {
                 exitButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(exitButton);
+        exitButton.setBounds(530, 11, 51, 23);
 
         backgroundPanel.setBackground(new java.awt.Color(59, 221, 197));
 
@@ -107,79 +130,15 @@ public class registerScreen extends javax.swing.JFrame {
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(passwordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
-                            .addComponent(lastNameTextField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(passwordLabel)
-                            .addComponent(emailAddressTextField)
-                            .addComponent(firstNameLabel)
-                            .addComponent(emailAddressLabel)
-                            .addComponent(lastNameLabel)
-                            .addComponent(firstNameTextField)))
-                    .addComponent(registerLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(exitButton)
-                .addGap(19, 19, 19))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(registerLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(exitButton)))
-                .addGap(40, 40, 40)
-                .addComponent(emailAddressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(emailAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(firstNameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lastNameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(passwordLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        getContentPane().add(backgroundPanel);
+        backgroundPanel.setBounds(0, -5, 610, 620);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
