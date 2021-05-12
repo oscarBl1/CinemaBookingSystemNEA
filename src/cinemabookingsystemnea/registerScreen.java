@@ -35,10 +35,10 @@ public class registerScreen extends javax.swing.JFrame {
         lastNameTextField = new javax.swing.JTextField();
         passwordTextField = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
-        registerButton = new javax.swing.JButton();
         registerLabel = new javax.swing.JLabel();
         exitButton = new javax.swing.JButton();
         backgroundPanel = new javax.swing.JPanel();
+        registerButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -100,16 +100,6 @@ public class registerScreen extends javax.swing.JFrame {
         getContentPane().add(passwordLabel);
         passwordLabel.setBounds(53, 372, 104, 34);
 
-        registerButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        registerButton.setText("Register");
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(registerButton);
-        registerButton.setBounds(170, 527, 200, 50);
-
         registerLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         registerLabel.setText("Register an account");
         getContentPane().add(registerLabel);
@@ -122,19 +112,33 @@ public class registerScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(exitButton);
-        exitButton.setBounds(530, 11, 51, 23);
+        exitButton.setBounds(521, 11, 60, 23);
 
         backgroundPanel.setBackground(new java.awt.Color(59, 221, 197));
+
+        registerButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        registerButton.setText("Register");
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addGap(171, 171, 171)
+                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(239, Short.MAX_VALUE))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                .addContainerGap(509, Short.MAX_VALUE)
+                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61))
         );
 
         getContentPane().add(backgroundPanel);
@@ -162,13 +166,29 @@ public class registerScreen extends javax.swing.JFrame {
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         // TODO add your handling code here:
         String emailAddress = emailAddressTextField.getText();
+        boolean emailValid = algorithms.emailCheck(emailAddress);
+        if(!emailValid){
+            System.out.println("Invalid email");
+        }else{
+            System.out.println("Valid email");
+        }
         String firstName = firstNameTextField.getText();
         String lastName = lastNameTextField.getText();
         String password = passwordTextField.getText();
+        boolean StrongPassword = algorithms.commonPass(password);
+        if(!StrongPassword){
+            System.out.println("Weak password");
+        }else{
+            System.out.println("Strong password");
+        }
+        account acc = new account(firstName, lastName, emailAddress, password);
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_exitButtonActionPerformed
 
     /**

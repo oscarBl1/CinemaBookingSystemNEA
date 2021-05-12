@@ -81,7 +81,7 @@ public class logInScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(exitButton);
-        exitButton.setBounds(531, 15, 51, 23);
+        exitButton.setBounds(512, 15, 70, 23);
 
         signInButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         signInButton.setText("Sign in");
@@ -122,6 +122,9 @@ public class logInScreen extends javax.swing.JFrame {
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void signInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInButtonActionPerformed
