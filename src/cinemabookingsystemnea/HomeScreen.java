@@ -30,6 +30,7 @@ public class HomeScreen extends javax.swing.JFrame {
         backgroundPanel = new javax.swing.JPanel();
         logInButton = new javax.swing.JButton();
         registerButton = new javax.swing.JButton();
+        moviesButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -51,6 +52,13 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
+        moviesButton.setText("View Movies");
+        moviesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moviesButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
@@ -61,6 +69,10 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(registerButton)
                 .addContainerGap())
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addGap(225, 225, 225)
+                .addComponent(moviesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,7 +81,9 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(logInButton)
                     .addComponent(registerButton))
-                .addContainerGap(576, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 460, Short.MAX_VALUE)
+                .addComponent(moviesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -79,9 +93,9 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGap(0, 600, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 5, Short.MAX_VALUE)
                     .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 5, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,6 +123,13 @@ public class HomeScreen extends javax.swing.JFrame {
         rs.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_registerButtonActionPerformed
+
+    private void moviesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moviesButtonActionPerformed
+        // TODO add your handling code here:
+        moviesScreen ms = new moviesScreen();
+        ms.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_moviesButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,6 +169,7 @@ public class HomeScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JButton logInButton;
+    private javax.swing.JButton moviesButton;
     private javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
 }
