@@ -12,7 +12,12 @@ public class algorithms {
         Pattern pattern = Pattern.compile(regex);
         
         Matcher matcher = pattern.matcher(emailAddress);
-        emailValid = matcher.matches();
+        if(matcher.matches() && emailAddress.length() <=8){
+            emailValid = true;
+        }else{
+            emailValid = false;
+        }
+        
 
         return emailValid;
     }
