@@ -190,25 +190,25 @@ public class registerScreen extends javax.swing.JFrame {
 
             boolean emailValid = algorithms.emailCheck(emailAddress);
             if (!emailValid) {
-                System.out.println("Invalid email");
+                
                 validator.setText("Invalid email");
             } else {
-                System.out.println("Valid email");
+               
                 validator.setText("Valid email");
 
                 boolean StrongPassword = algorithms.commonPass(password);
                 if (!StrongPassword) {
-                    System.out.println("Weak password");
+                    
                     validator.setText("Weak password");
                 } else {
-                    System.out.println("Strong password");
+                    
                     validator.setText("Strong password");
                     account acc = new account(firstName, lastName, emailAddress, password);
                 }
             }
 
         }else{
-            System.out.println("Please do not leave fields blank");
+            
             validator.setText("Please do not leave fields blank");
         }
 

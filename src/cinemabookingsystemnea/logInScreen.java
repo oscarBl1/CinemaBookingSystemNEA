@@ -148,13 +148,13 @@ public class logInScreen extends javax.swing.JFrame {
         boolean emailValid = algorithms.emailCheck(emailAddress);
         if (emailAddressNotNull && passwordNotNull) {
             if(emailValid){
-                validator.setText(null);
+                validator.setText("Valid email address");
             }else{
-                System.out.println("Invalid email address");
+                
                 validator.setText("Invalid email address");
             }
         }else{
-            System.out.println("Please do not leave fields blank");
+            
             validator.setText("Please do not leave fields blank");
         }
 
