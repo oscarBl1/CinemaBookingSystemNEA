@@ -39,6 +39,7 @@ public class registerScreen extends javax.swing.JFrame {
         exitButton = new javax.swing.JButton();
         backgroundPanel = new javax.swing.JPanel();
         registerButton = new javax.swing.JButton();
+        validator = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -124,19 +125,25 @@ public class registerScreen extends javax.swing.JFrame {
             }
         });
 
+        validator.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
                 .addGap(171, 171, 171)
-                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(validator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(registerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                 .addContainerGap(239, Short.MAX_VALUE))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
-                .addContainerGap(509, Short.MAX_VALUE)
+                .addContainerGap(466, Short.MAX_VALUE)
+                .addComponent(validator, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
         );
@@ -165,23 +172,46 @@ public class registerScreen extends javax.swing.JFrame {
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         // TODO add your handling code here:
-        String emailAddress = emailAddressTextField.getText();
-        boolean emailValid = algorithms.emailCheck(emailAddress);
-        if(!emailValid){
-            System.out.println("Invalid email");
+        String password;
+        String lastName;
+        String firstName;
+        String emailAddress;
+
+        emailAddress = emailAddressTextField.getText();
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        password = passwordTextField.getText();
+        boolean emailNotNull = algorithms.notNull(emailAddress);
+        boolean fNameNotNull = algorithms.notNull(firstName);
+        boolean lNameNotNull = algorithms.notNull(lastName);
+        boolean passwordNotNull = algorithms.notNull(password);
+
+        if (emailNotNull && fNameNotNull && lNameNotNull && passwordNotNull) {
+
+            boolean emailValid = algorithms.emailCheck(emailAddress);
+            if (!emailValid) {
+                System.out.println("Invalid email");
+                validator.setText("Invalid email");
+            } else {
+                System.out.println("Valid email");
+                validator.setText("Valid email");
+
+                boolean StrongPassword = algorithms.commonPass(password);
+                if (!StrongPassword) {
+                    System.out.println("Weak password");
+                    validator.setText("Weak password");
+                } else {
+                    System.out.println("Strong password");
+                    validator.setText("Strong password");
+                    account acc = new account(firstName, lastName, emailAddress, password);
+                }
+            }
+
         }else{
-            System.out.println("Valid email");
+            System.out.println("Please do not leave fields blank");
+            validator.setText("Please do not leave fields blank");
         }
-        String firstName = firstNameTextField.getText();
-        String lastName = lastNameTextField.getText();
-        String password = passwordTextField.getText();
-        boolean StrongPassword = algorithms.commonPass(password);
-        if(!StrongPassword){
-            System.out.println("Weak password");
-        }else{
-            System.out.println("Strong password");
-        }
-        account acc = new account(firstName, lastName, emailAddress, password);
+
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -239,5 +269,6 @@ public class registerScreen extends javax.swing.JFrame {
     private javax.swing.JTextField passwordTextField;
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel registerLabel;
+    private javax.swing.JLabel validator;
     // End of variables declaration//GEN-END:variables
 }

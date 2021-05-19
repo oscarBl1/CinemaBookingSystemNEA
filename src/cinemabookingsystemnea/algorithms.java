@@ -21,11 +21,23 @@ public class algorithms {
         boolean strongPassword = true;
         String[] commonPassword = {"password", "123", "321", "pass", "abc", "xyz"};
         for(int i = 0; i < commonPassword.length; i++){
-            if(password.contains(commonPassword[i])){
+            if(password.contains(commonPassword[i]) || password.length() <=8){
                 strongPassword = false;
                 break;
             }
         }
         return strongPassword;
     }
+    
+    public static boolean notNull(String wordToCheck){
+        boolean notNull = false;
+        if(wordToCheck.length()==0){
+           notNull = false; 
+        }else{
+           notNull = true;
+        }
+        
+        return notNull;
+    }
+    
 }

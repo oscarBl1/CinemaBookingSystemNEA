@@ -35,12 +35,16 @@ public class logInScreen extends javax.swing.JFrame {
         exitButton = new javax.swing.JButton();
         signInButton = new javax.swing.JButton();
         backgroundPanel = new javax.swing.JPanel();
+        validator = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(200, 10, 10));
+        setMaximumSize(new java.awt.Dimension(600, 600));
+        setMinimumSize(new java.awt.Dimension(600, 600));
         setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
+        setSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(null);
 
         emailAddressLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
@@ -95,19 +99,27 @@ public class logInScreen extends javax.swing.JFrame {
 
         backgroundPanel.setBackground(new java.awt.Color(59, 221, 197));
 
+        validator.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addGap(187, 187, 187)
+                .addComponent(validator, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(207, Short.MAX_VALUE))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                .addContainerGap(455, Short.MAX_VALUE)
+                .addComponent(validator, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(125, 125, 125))
         );
 
         getContentPane().add(backgroundPanel);
-        backgroundPanel.setBounds(0, -6, 600, 610);
+        backgroundPanel.setBounds(0, 0, 600, 610);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -131,6 +143,22 @@ public class logInScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         String emailAddress = emailAddressTextField.getText();
         String password = emailAddressTextField.getText();
+        boolean emailAddressNotNull = algorithms.notNull(emailAddress);
+        boolean passwordNotNull = algorithms.notNull(password);
+        boolean emailValid = algorithms.emailCheck(emailAddress);
+        if (emailAddressNotNull && passwordNotNull) {
+            if(emailValid){
+                validator.setText(null);
+            }else{
+                System.out.println("Invalid email address");
+                validator.setText("Invalid email address");
+            }
+        }else{
+            System.out.println("Please do not leave fields blank");
+            validator.setText("Please do not leave fields blank");
+        }
+
+
     }//GEN-LAST:event_signInButtonActionPerformed
 
     /**
@@ -177,5 +205,6 @@ public class logInScreen extends javax.swing.JFrame {
     private javax.swing.JTextField passwordTextField;
     private javax.swing.JButton signInButton;
     private javax.swing.JLabel signInLabel;
+    private javax.swing.JLabel validator;
     // End of variables declaration//GEN-END:variables
 }
