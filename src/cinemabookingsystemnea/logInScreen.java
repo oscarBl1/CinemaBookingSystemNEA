@@ -32,10 +32,10 @@ public class logInScreen extends javax.swing.JFrame {
         passwordLabel = new javax.swing.JLabel();
         passwordTextField = new javax.swing.JTextField();
         signInLabel = new javax.swing.JLabel();
-        exitButton = new javax.swing.JButton();
         signInButton = new javax.swing.JButton();
         backgroundPanel = new javax.swing.JPanel();
         validator = new javax.swing.JLabel();
+        exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -78,15 +78,6 @@ public class logInScreen extends javax.swing.JFrame {
         getContentPane().add(signInLabel);
         signInLabel.setBounds(237, 47, 80, 34);
 
-        exitButton.setText("Exit");
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(exitButton);
-        exitButton.setBounds(512, 15, 70, 23);
-
         signInButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         signInButton.setText("Sign in");
         signInButton.addActionListener(new java.awt.event.ActionListener() {
@@ -97,9 +88,16 @@ public class logInScreen extends javax.swing.JFrame {
         getContentPane().add(signInButton);
         signInButton.setBounds(189, 502, 200, 50);
 
-        backgroundPanel.setBackground(new java.awt.Color(59, 221, 197));
+        backgroundPanel.setBackground(new java.awt.Color(204, 255, 204));
 
         validator.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+
+        exitButton.setText("Home");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
@@ -109,17 +107,23 @@ public class logInScreen extends javax.swing.JFrame {
                 .addGap(187, 187, 187)
                 .addComponent(validator, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(207, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
-                .addContainerGap(455, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
+                .addComponent(exitButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 403, Short.MAX_VALUE)
                 .addComponent(validator, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(125, 125, 125))
         );
 
         getContentPane().add(backgroundPanel);
-        backgroundPanel.setBounds(0, 0, 600, 610);
+        backgroundPanel.setBounds(0, 0, 600, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -148,9 +152,8 @@ public class logInScreen extends javax.swing.JFrame {
         boolean emailValid = algorithms.emailCheck(emailAddress);
         if (emailAddressNotNull && passwordNotNull) {
             if(emailValid){
-                validator.setText("Valid email address");
+                validator.setText("");
             }else{
-                
                 validator.setText("Invalid email address");
             }
         }else{

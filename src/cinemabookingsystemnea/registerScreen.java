@@ -36,10 +36,10 @@ public class registerScreen extends javax.swing.JFrame {
         passwordTextField = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
         registerLabel = new javax.swing.JLabel();
-        exitButton = new javax.swing.JButton();
         backgroundPanel = new javax.swing.JPanel();
         registerButton = new javax.swing.JButton();
         validator = new javax.swing.JLabel();
+        exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -106,16 +106,7 @@ public class registerScreen extends javax.swing.JFrame {
         getContentPane().add(registerLabel);
         registerLabel.setBounds(178, 32, 228, 34);
 
-        exitButton.setText("Exit");
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(exitButton);
-        exitButton.setBounds(521, 11, 60, 23);
-
-        backgroundPanel.setBackground(new java.awt.Color(59, 221, 197));
+        backgroundPanel.setBackground(new java.awt.Color(204, 255, 204));
 
         registerButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         registerButton.setText("Register");
@@ -127,6 +118,13 @@ public class registerScreen extends javax.swing.JFrame {
 
         validator.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
 
+        exitButton.setText("Home");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
@@ -136,12 +134,18 @@ public class registerScreen extends javax.swing.JFrame {
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(validator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(registerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
-                .addContainerGap(466, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
+                .addComponent(exitButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 402, Short.MAX_VALUE)
                 .addComponent(validator, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,7 +153,7 @@ public class registerScreen extends javax.swing.JFrame {
         );
 
         getContentPane().add(backgroundPanel);
-        backgroundPanel.setBounds(0, -5, 610, 620);
+        backgroundPanel.setBounds(0, -5, 600, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
